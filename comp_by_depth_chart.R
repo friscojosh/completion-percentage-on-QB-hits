@@ -56,3 +56,11 @@ ggplot(pass_plays_no_spikes_qb_hit, aes(x = air_yards, y = passing_cmp)) +
         title = "Hits on the QB negatively impact passing at all depths tktktk",
         subtitle = '2009-2016 league average completion percentage in orange',
         caption = "Source: NFL, Elias Sports Bureau")
+
+### Verify that these are hits with no sack
+
+colnames(pass_plays)
+
+hits_and_sacks <- pass_plays %>%
+   filter(qb_hits == 1) %>%
+   select(qb_hits, sacks)
