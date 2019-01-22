@@ -1,14 +1,15 @@
-### ----------------------------------------------------------------
+### ----------------------------------------------------------------------------------------------
 ### Chart showing a QB's completion percentage by depth when hit
 ### relative to league average
-### ----------------------------------------------------------------
+### ----------------------------------------------------------------------------------------------
 
 library(tidyverse)
 
 pass_plays <- read_csv("data/__pass_plays.csv")
 
-### Elias charts dumps throw aways into the 0 air yards bucket.
+### Elias charts dumps throw aways into the 0 air yards bucket.-----------------------------------
 ### This biases the data when binning, so we remove it.
+
 pass_plays_no_spikes_qb_hit <- pass_plays %>%
    mutate(spike = ifelse(str_detect(description, "spiked"), 1, 0)) %>%
    filter(spike == 0,
@@ -65,7 +66,12 @@ ggplot(pass_plays_no_spikes_qb_hit, aes(x = air_yards, y = passing_cmp)) +
         subtitle = '2009-2016 league average completion percentage in orange',
         caption = "Source: NFL, Elias Sports Bureau")
 
-### Verify that these are hits with no sack
+### magic incantation to save the plot to disk -----------------------------------------------------
+
+dev.copy(png,'total_defensive_dvoa.png')
+dev.off()
+
+### Verify that these are hits with no sack --------------------------------------------------------
 
 colnames(pass_plays)
 
