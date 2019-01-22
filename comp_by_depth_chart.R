@@ -68,7 +68,7 @@ ggplot(pass_plays_no_spikes_qb_hit, aes(x = air_yards, y = passing_cmp)) +
 
 ### magic incantation to save the plot to disk -----------------------------------------------------
 
-dev.copy(png,'chart.png')
+dev.copy(png,'hits_chart.png')
 dev.off()
 
 ### Verify that these are hits with no sack --------------------------------------------------------
