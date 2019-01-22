@@ -63,12 +63,12 @@ ggplot(pass_plays_no_spikes_qb_hit, aes(x = air_yards, y = passing_cmp)) +
    ) +
    labs(x = "Depth of Target", y = "Completion Percentage",
         title = "Hits on the QB negatively impact passing at all depths tktktk",
-        subtitle = '2009-2016 league average completion percentage in orange',
+        subtitle = '2009-2018 league average completion percentage in orange',
         caption = "Source: NFL, Elias Sports Bureau")
 
 ### magic incantation to save the plot to disk -----------------------------------------------------
 
-dev.copy(png,'total_defensive_dvoa.png')
+dev.copy(png,'chart.png')
 dev.off()
 
 ### Verify that these are hits with no sack --------------------------------------------------------
